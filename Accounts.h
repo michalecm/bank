@@ -10,11 +10,11 @@ using namespace std;
 
 class Account
 {
-protected:
+public:
     int acctNum;                //The account number.
     int pin;                    //The pin number.
 public:
-    Account(){ setAcctNum(0); setPin(0);} //default constructor.
+    Account(){ setAcctNum(1); setPin(1);} //default constructor.
     Account(int acctNum, int pin){setAcctNum(acctNum); setPin(pin);} //Constructor for when both pin and account number are provided.
     bool setAcctNum(int actNum);       //Basic function for setting account number. returns true when successful.
     bool setPin(int pinNum);               //Basic function for setting pin number. returns true when successful.
@@ -24,12 +24,12 @@ public:
 
 class CustomerAccount : public Account
 {
-private:
+public:
         string firstName;
         string lastName;
         string city;
         string state;
-        int phone;
+        long phone;
         double acctBalance;             //the balance in the account.
 public:
         CustomerAccount();
@@ -46,6 +46,7 @@ public:
         string getState();
         int getPhone();
         double getAcctBalance();
+		void toString();
 };
 
 class AdminAccount : public Account
